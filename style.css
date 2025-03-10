@@ -1,0 +1,17 @@
+.background {
+    background-image: linear-gradient(to bottom right, rgba(84, 91, 166, 0.548), rgb(31, 57, 135));
+    width: 100%;
+    height: 1000px;
+    position: fixed;
+}
+
+#sprite {
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    /* transition-duration: 1s; */
+}
+
+/* .sprite:hover {
+    transform: translate(500px, 500px);
+} */
