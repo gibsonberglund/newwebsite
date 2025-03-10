@@ -28,16 +28,24 @@ let xaxis = 0;
 let yaxis = 0;
 
 sprite.style.backgroundColor = "pink";
-let flightPath = 25;
+let flightPath = 30;
 
 function spriteFall () {
     setInterval(function() {
         // code to be executed repeatedly
         if (sprite.style.backgroundColor == "pink") {
-        xaxis = xaxis + 5;
-        yaxis = yaxis + 2.5;
-        let spriteMovement = xaxis + "px " + yaxis + "px";
-        sprite.style.margin = spriteMovement;
+            if (xaxis > 500) {
+                sprite.style.backgroundColor = "red";
+                return;
+            } else if ((yaxis > 700) && (xaxis < 100)) {
+                sprite.style.backgroundColor = "green";
+                return;
+            } else {
+                xaxis = xaxis + 5;
+                yaxis = yaxis + 2.5;
+                let spriteMovement = xaxis + "px " + yaxis + "px";
+                sprite.style.margin = spriteMovement;
+            }
         }
         else if (sprite.style.backgroundColor == "blue") {
             for (var i = 0; i < flightPath; i++) {
@@ -48,7 +56,11 @@ function spriteFall () {
             }
             sprite.style.backgroundColor = "pink";
         }
+        else if (sprite.style.backgroundColor == "green") {
+            return;
+        }
     }, 25);
 };
+
 
 spriteFall();
