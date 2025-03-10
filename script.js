@@ -1,21 +1,30 @@
 let background = document.querySelector(".background");
 let sprite = document.querySelector("#sprite");
+let textbox = document.querySelector("#textbox");
 
+let paragraph = "This is the paragraph";
 
-function spriteFly () {
-    spriteFall() = false;
-    flyx = xaxis -25;
-    flyy = yaxis -25;
-    let spriteFly = xaxis + "px " + yaxis + "px";
-    sprite.style.margin = spriteFly;
-};
+let textArray = paragraph.split(" ");
 
-// background.addEventListener('mouseover', function() {
-//     spriteFall();
-// });
+let textArrayPosition = 0
+
 
 background.addEventListener('click', function() {
     // spriteFall() = false;
+    console.log("hello");
+    if (sprite.style.backgroundColor == "pink") {
+    sprite.style.backgroundColor = "blue";
+    // document.getElementById("textbox").innerHTML = textArray[textArrayPosition];
+    let nextWord = document.createElement("p");
+    nextWord.innerHTML = textArray[textArrayPosition];
+    textbox.appendChild(nextWord);
+    textArrayPosition = textArrayPosition + 1; 
+    } else {
+        sprite.style.backgroundColor = "pink";
+    }
+})
+
+textbox.addEventListener('click', function() {
     console.log("hello");
     if (sprite.style.backgroundColor == "pink") {
     sprite.style.backgroundColor = "blue";
@@ -64,3 +73,12 @@ function spriteFall () {
 
 
 spriteFall();
+
+
+// For Words appearing on screen
+//create an object for holding a paragraph of text
+//parse the paragraph into words
+//  do this by dividing up the paragraph around spaces
+//iterate the words into an array
+//print the selected item in the array with each click
+//  incremnt the selector with each click

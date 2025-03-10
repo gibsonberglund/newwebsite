@@ -12,6 +12,19 @@
     /* transition-duration: 1s; */
 }
 
+.textbox {
+    position: absolute;
+    display: flex;
+    margin: 20% 20%;
+    width: 500px;
+    height: 500px;
+
+}
+
+.textbox p {
+    margin: 5px;
+}
+
 /* .sprite:hover {
     transform: translate(500px, 500px);
 } */
