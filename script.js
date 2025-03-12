@@ -6,81 +6,84 @@ let paragraph = "I ran to a future city, a metropolis in the year 2320. The poly
 
 let textArray = paragraph.split(" ");
 
-let textArrayPosition = 0
+let textArrayPosition = 0;
 
+let textboxaxis = 20;
+
+sprite.style.backgroundImage = "url('./assets/images/pixelbird1.png')";
 
 background.addEventListener('click', function() {
-    // spriteFall() = false;
     console.log("hello");
     if (sprite.style.backgroundColor == "pink") {
-    sprite.style.backgroundColor = "blue";
-    // document.getElementById("textbox").innerHTML = textArray[textArrayPosition];
-    let nextWord = document.createElement("p");
-    nextWord.innerHTML = textArray[textArrayPosition];
-    textbox.appendChild(nextWord);
-    textArrayPosition = textArrayPosition + 1; 
-    background.scrollRight += 20;
+        sprite.style.backgroundColor = "blue";
+        sprite.style.backgroundImage = "url('./assets/images/pixelbird2.png')";
+
+        //makes one word appear with each click
+            let nextWord = document.createElement("p");
+            nextWord.innerHTML = textArray[textArrayPosition];
+            textbox.appendChild(nextWord);
+            textArrayPosition = textArrayPosition + 1; 
+            background.scrollRight += 20;
+            textboxaxis = textboxaxis - 1;
+            let textMovement = "20% " + textboxaxis + "%";
+            textbox.style.margin = textMovement; 
+        //
     } else {
         sprite.style.backgroundColor = "pink";
     }
 });
 
-// textbox.addEventListener('click', function() {
-//     console.log("hello");
-//     if (sprite.style.backgroundColor == "pink") {
-//     sprite.style.backgroundColor = "blue";
-//     } else {
-//         sprite.style.backgroundColor = "pink";
-//     }
-// })
 
 let xaxis = 0;
 let yaxis = 0;
 
 
 sprite.style.backgroundColor = "pink";
+sprite.style.backgroundImage = "url('./assets/images/pixelbird1.png')";
 let flightPath = 30;
 
 function spriteFall () {
     setInterval(function() {
-        // code to be executed repeatedly
+        //IF SPRITE IS FALLING
         if (sprite.style.backgroundColor == "pink") {
+            //SPRITE DIES
             if (xaxis > 500) {
                 sprite.style.backgroundColor = "red";
                 return;
+            //SPRITE REACHES THE GOAL
             } else if ((yaxis > 700) && (xaxis < 100)) {
                 sprite.style.backgroundColor = "green";
                 return;
+            //SPRITE IS FALLING
             } else {
                 xaxis = xaxis + 5;
                 yaxis = yaxis + 2.5;
                 let spriteMovement = xaxis + "px " + yaxis + "px";
                 sprite.style.margin = spriteMovement;
+                sprite.style.backgroundImage = "url('./assets/images/pixelbird1.png')";
             }
         }
+        //IF SPRITE IS FLYING
         else if (sprite.style.backgroundColor == "blue") {
+            //MOVE SPRITE UP AND FORWARD
             for (var i = 0; i < flightPath; i++) {
             xaxis = xaxis - 1;
             yaxis = yaxis + 1;
             let spriteMovement = xaxis + "px " + yaxis + "px";
-            sprite.style.margin = spriteMovement; 
+            sprite.style.margin = spriteMovement;
             }
+            //CHANGE SPRITE BACK TO FALLING
             sprite.style.backgroundColor = "pink";
+            
         }
         else if (sprite.style.backgroundColor == "green") {
             return;
         }
-    }, 25);
+    }, 50);
 };
 
 
 spriteFall();
 
 
-// For Words appearing on screen
-//create an object for holding a paragraph of text
-//parse the paragraph into words
-//  do this by dividing up the paragraph around spaces
-//iterate the words into an array
-//print the selected item in the array with each click
-//  incremnt the selector with each click
+

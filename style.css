@@ -11,14 +11,14 @@
     height: 100px;
     /* background-image: url("./assets/images/birdfly1.png"); */
     background-size: contain;
-    /* transition-duration: 1s; */
+    /* transition-duration: 0.5s; */
 }
 
 .textbox {
     position: absolute;
     display: flex;
     margin: 20% 20%;
-    width: 500px;
+    width: 500%;
     height: 100px;
     overflow: auto;
 }
@@ -27,6 +27,7 @@
     margin: 3px;
     transition: 0.5s;
 }
+
 
 /* .sprite:hover {
     transform: translate(500px, 500px);
